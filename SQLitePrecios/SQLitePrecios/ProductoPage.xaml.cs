@@ -59,7 +59,7 @@ namespace SQLitePrecios
                 //llamamos a la otra vista de resultados
                 ComparacionPage page = new ComparacionPage((DtoProducto) e.Item);
 
-                Navigation.PushModalAsync(page);
+                await Navigation.PushModalAsync(page);
                 
             }
 
