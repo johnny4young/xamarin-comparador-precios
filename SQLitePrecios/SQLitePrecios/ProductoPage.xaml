@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLitePrecios.ProductoPage">
+
+  <ScrollView>
+    <StackLayout Spacing="10">
+      <Label Text="Producto"
+             Font="24"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             FontAttributes="Bold" />
+      <Entry x:Name="productoEntry"
+             Placeholder="Nombre" />
+      <Label Text="Precio"
+             Font="24"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             FontAttributes="Bold" />
+      <Entry x:Name="precioEntry"
+             Placeholder="Precio" />
+      <Button x:Name="agregarButton"
+              Text="Agregar"
+              BackgroundColor="Olive"
+              TextColor="White" />
+      <ListView x:Name="listaListView"  />
+    </StackLayout>
+  </ScrollView>
+  
+</ContentPage>

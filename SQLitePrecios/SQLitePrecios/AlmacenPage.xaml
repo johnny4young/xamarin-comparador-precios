@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLitePrecios.AlmacenPage">
+  <ScrollView>
+    <StackLayout Spacing="10">
+      <Label Text="Almacen"
+             Font="24"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             FontAttributes="Bold" />
+      <Entry x:Name="almacenEntry"
+             Placeholder="Almacen" />
+      <StackLayout Orientation="Horizontal">
+        <Label Text="Activo: "
+               VerticalOptions="Center" />
+      </StackLayout>
+      <Button x:Name="agregarButton"
+              Text="Agregar"
+              BackgroundColor="Olive"
+              TextColor="White" />
+      <ListView x:Name="listaListView"  />
+    </StackLayout>
+  </ScrollView>
+</ContentPage>
