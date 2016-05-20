@@ -4,22 +4,26 @@
              x:Class="SQLitePrecios.AlmacenPage">
   <ScrollView>
     <StackLayout Spacing="10">
-      <Label Text="Almacen"
+      <Label Text="Almacén"
              Font="24"
              HorizontalOptions="Center"
              VerticalOptions="Center"
              FontAttributes="Bold" />
       <Entry x:Name="almacenEntry"
-             Placeholder="Almacen" />
+             Placeholder="Almacén" />
       <StackLayout Orientation="Horizontal">
         <Label Text="Activo: "
                VerticalOptions="Center" />
       </StackLayout>
       <Button x:Name="agregarButton"
-              Text="Agregar"
+              Text="Guardar"
+              BackgroundColor="Olive"
+              TextColor="White" />
+      <Button x:Name="limpiarButton"
+              Text="Limpiar"
               BackgroundColor="Olive"
               TextColor="White" />
       <ListView x:Name="listaListView"  />
-    </StackLayout>
+    </StackLayout> 
   </ScrollView>
 </ContentPage>

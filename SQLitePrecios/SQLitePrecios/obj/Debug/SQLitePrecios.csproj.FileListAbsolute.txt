@@ -41,9 +41,6 @@ D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\obj\Debu
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\obj\Debug\SQLitePrecios.ComparacionPage.xaml.g.cs
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\obj\Debug\SQLitePrecios.dll
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\obj\Debug\SQLitePrecios.pdb
-D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\obj\Debug\SQLitePrecios.dll.mdb
-D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\bin\Debug\SQLitePrecios.dll.mdb
-D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\obj\Debug\SQLitePrecios.dll.mdb
-D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\bin\Debug\SQLitePrecios.dll.mdb
+D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\obj\Debug\SQLitePrecios.csprojResolveAssemblyReference.cache
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\obj\Debug\SQLitePrecios.dll.mdb
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios\bin\Debug\SQLitePrecios.dll.mdb

@@ -92,6 +92,5 @@ D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios.Droid\ob
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios.Droid\obj\Debug\R.cs.flag
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios.Droid\obj\Debug\uploadflags.txt
-D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios.Droid\bin\Debug\SQLitePrecios.dll.mdb
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios.Droid\obj\Debug\SQLitePrecios.Droid.dll.mdb
 D:\SQLitePrecios\xamarin-comparador-precios\SQLitePrecios\SQLitePrecios.Droid\bin\Debug\SQLitePrecios.Droid.dll.mdb
