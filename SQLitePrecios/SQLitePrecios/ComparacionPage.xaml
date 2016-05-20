@@ -2,8 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SQLitePrecios.ComparacionPage">
-  
 
-  <ListView x:Name="listaListView"  />
-
+  <ScrollView>
+    <StackLayout Spacing="10">
+      <Label Text="RESULTADO DE COMPARAR PRECIOS"
+             Font="24"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             FontAttributes="Bold" />
+      <ListView x:Name="listaListView"  /> 
+    </StackLayout>
+  </ScrollView>
+     
 </ContentPage>

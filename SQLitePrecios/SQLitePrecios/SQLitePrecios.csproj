@@ -40,6 +40,7 @@
       <DependentUpon>ComparacionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DtoProducto.cs" />
+    <Compile Include="PreciosCell.cs" />
     <Compile Include="ProductoCell.cs" />
     <Compile Include="AlmacenCell.cs" />
     <Compile Include="AlmacenPage.xaml.cs">

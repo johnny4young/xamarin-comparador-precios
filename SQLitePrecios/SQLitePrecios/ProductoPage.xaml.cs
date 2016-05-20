@@ -11,6 +11,9 @@ namespace SQLitePrecios
     public partial class ProductoPage : ContentPage
     {
         public Almacen AlmacenSeleccionado;
+        public List<DtoProducto> Productos;
+        public DtoProducto ItemEditar;
+        public bool modoNuevo = true;
 
         public ProductoPage(Almacen almacenSeleccionado)
         {
@@ -18,7 +21,7 @@ namespace SQLitePrecios
 
             AlmacenSeleccionado = almacenSeleccionado;
 
-            listaListView.ItemTemplate = new DataTemplate(typeof(ProductoCell));
+            listaListView.ItemTemplate = new DataTemplate(() => new ProductoCell(this) );
             
 
             listaListView.RowHeight = 70;
@@ -28,13 +31,30 @@ namespace SQLitePrecios
 
             using (var datos = new DataAccess())
             {
-                listaListView.ItemsSource = datos.GetProductos(AlmacenSeleccionado.IDAlmacen);
+                Productos = new List<DtoProducto>();
+                Productos = datos.GetProductos(AlmacenSeleccionado.IDAlmacen);
+                listaListView.ItemsSource = Productos;
             }
 
             agregarButton.Clicked += AgregarButton_Clicked;
+            limpiarButton.Clicked += LimpiarButton_Clicked; ;
         }
 
-        
+
+        /// <summary>
+        /// limpiar la data actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LimpiarButton_Clicked(object sender, EventArgs e)
+        {
+            productoEntry.Text = "";
+            precioEntry.Text = "";
+            modoNuevo = true;
+            productoEntry.Focus();
+        }
+
+
 
 
         /// <summary>
@@ -97,25 +117,97 @@ namespace SQLitePrecios
                 Nombre = productoEntry.Text,
             };
 
+
+            //insertamos
             using (var datos = new DataAccess())
             {
-                int consecutivo = datos.InsertProducto(producto);
-
-                var precioCompetidor = new PrecioCompetidor
+                if (modoNuevo)
                 {
-                    IDAlmacen = AlmacenSeleccionado.IDAlmacen,
-                    IDProducto = consecutivo,
-                    Precio = precioDecimal
-                };
+                    int consecutivo = datos.InsertProducto(producto);
 
-                datos.InsertPrecioCompetidor(precioCompetidor);
+                    var precioCompetidor = new PrecioCompetidor
+                    {
+                        IDAlmacen = AlmacenSeleccionado.IDAlmacen,
+                        IDProducto = consecutivo,
+                        Precio = precioDecimal
+                    };
 
-                listaListView.ItemsSource = datos.GetProductos(AlmacenSeleccionado.IDAlmacen);
+                    datos.InsertPrecioCompetidor(precioCompetidor);
+                }
+                else
+                {
+                    //obtenemos el producto y lo actualizamos
+                    ItemEditar.Nombre = productoEntry.Text;
+                    ItemEditar.Precio = precioDecimal;
+                    //actualizamos
+                    datos.UpdateProducto(ItemEditar);
+                }
+                
+
+                Productos = new List<DtoProducto>();
+                Productos = datos.GetProductos(AlmacenSeleccionado.IDAlmacen);
+                listaListView.ItemsSource = Productos;
+
+                productoEntry.Text = string.Empty;
+                precioEntry.Text = string.Empty;
+            }            
+            
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void DeleteProductoButton_Clicked(object sender, EventArgs e)
+        {
+            var item = (Xamarin.Forms.Button)sender;
+            var parameter = Convert.ToInt32(item.CommandParameter);
+
+            bool resultado = await DisplayAlert("Pregunta", "Desea eliminar producto?", "SI", "NO");
+
+            if (resultado == true)
+            {
+                ItemEditar = (from itm in Productos
+                              where itm.IDProducto == parameter
+                              select itm).FirstOrDefault<DtoProducto>();
+
+                using (var datos = new DataAccess())
+                {
+                    datos.DeleteProducto(ItemEditar);
+                    Productos = new List<DtoProducto>();
+                    Productos = datos.GetProductos(AlmacenSeleccionado.IDAlmacen);
+                    listaListView.ItemsSource = Productos;
+                }
+
+
             }
 
-            productoEntry.Text = string.Empty;
-            precioEntry.Text = string.Empty;           
-            //await DisplayAlert("Confirmación", "Producto agregado", "Aceptar");
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void EditProductoButton_Clicked(object sender, EventArgs e)
+        {
+            var item = (Xamarin.Forms.Button)sender;
+            var parameter = Convert.ToInt32(item.CommandParameter);
+
+            ItemEditar = (from itm in Productos
+                          where itm.IDProducto == parameter
+                          select itm).FirstOrDefault<DtoProducto>();
+
+            productoEntry.Text = ItemEditar.Nombre;
+            precioEntry.Text =  ItemEditar.Precio.ToString();
+            productoEntry.Focus();
+            modoNuevo = false;
+
+        }
+
+
     }
 }

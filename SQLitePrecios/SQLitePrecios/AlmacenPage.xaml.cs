@@ -152,7 +152,7 @@ namespace SQLitePrecios
             var item = (Xamarin.Forms.Button)sender;
             var parameter = Convert.ToInt32(item.CommandParameter);
 
-            bool resultado = await DisplayAlert("Pregunta", "Desea elimiar almacén?", "SI", "NO");
+            bool resultado = await DisplayAlert("Pregunta", "Desea eliminar almacén?", "SI", "NO");
 
             if (resultado == true)
             {

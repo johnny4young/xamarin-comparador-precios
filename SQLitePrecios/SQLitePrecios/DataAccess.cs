@@ -41,6 +41,13 @@ namespace SQLitePrecios
 
         public void DeleteAlmacen(Almacen almacen)
         {
+            //eliminamos todos los productos de una almacen en precios
+            var almacenes = connection.Table<PrecioCompetidor>().Where(c => c.IDAlmacen == almacen.IDAlmacen).ToList();
+            foreach (var item in almacenes)
+            {
+                connection.Delete(item);
+            }            
+            //luego procedemos a  borrar
             connection.Delete(almacen);
         }
 
@@ -126,8 +133,33 @@ namespace SQLitePrecios
 
 
         public void InsertPrecioCompetidor(PrecioCompetidor precioCompetidor)
-        {
+        {            
             connection.Insert(precioCompetidor);
+        }
+
+
+        public void UpdateProducto(DtoProducto producto)
+        {
+            //obtenemos y actualizamos producto
+            var prod = connection.Table<Producto>().FirstOrDefault(c => c.IDProducto == producto.IDProducto);
+            prod.Nombre = producto.Nombre;
+            connection.Update(prod);
+
+            //obtenemos y actualizamos precio
+            var precio = connection.Table<PrecioCompetidor>().FirstOrDefault(c => c.IDProducto == producto.IDProducto);
+            precio.Precio = producto.Precio;
+
+            connection.Update(precio);
+        }
+
+        public void DeleteProducto(DtoProducto producto)
+        {
+            //borramos todas las referencia de los productos en precios
+            var precio = connection.Table<PrecioCompetidor>().FirstOrDefault(c => c.IDProducto == producto.IDProducto);
+            connection.Delete(precio);
+            //borramos el producto
+            var prod = connection.Table<Producto>().FirstOrDefault(c => c.IDProducto == producto.IDProducto);
+            connection.Delete(prod);
         }
 
 

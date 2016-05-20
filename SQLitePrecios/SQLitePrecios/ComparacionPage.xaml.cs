@@ -19,7 +19,7 @@ namespace SQLitePrecios
             ProductoSeleccionado = productoSeleccionado;
 
             //cargamos la comparación            
-            listaListView.ItemTemplate = new DataTemplate(typeof(ProductoCell));
+            listaListView.ItemTemplate = new DataTemplate(typeof(PreciosCell));
 
 
             listaListView.RowHeight = 70;            

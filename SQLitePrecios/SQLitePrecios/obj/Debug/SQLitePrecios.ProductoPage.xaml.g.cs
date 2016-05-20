@@ -26,6 +26,9 @@ namespace SQLitePrecios {
         private global::Xamarin.Forms.Button agregarButton;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button limpiarButton;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ListView listaListView;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -34,6 +37,7 @@ namespace SQLitePrecios {
             productoEntry = this.FindByName<global::Xamarin.Forms.Entry>("productoEntry");
             precioEntry = this.FindByName<global::Xamarin.Forms.Entry>("precioEntry");
             agregarButton = this.FindByName<global::Xamarin.Forms.Button>("agregarButton");
+            limpiarButton = this.FindByName<global::Xamarin.Forms.Button>("limpiarButton");
             listaListView = this.FindByName<global::Xamarin.Forms.ListView>("listaListView");
         }
     }

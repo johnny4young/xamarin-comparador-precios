@@ -23,6 +23,10 @@
               Text="Agregar"
               BackgroundColor="Olive"
               TextColor="White" />
+      <Button x:Name="limpiarButton"
+              Text="Limpiar"
+              BackgroundColor="Olive"
+              TextColor="White" />
       <ListView x:Name="listaListView"  />
     </StackLayout>
   </ScrollView>

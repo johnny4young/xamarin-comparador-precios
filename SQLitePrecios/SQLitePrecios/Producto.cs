@@ -10,7 +10,7 @@ namespace SQLitePrecios
     public class Producto
     {
         [PrimaryKey, AutoIncrement]
-        public int IDProducto { get; set; }
+        public int IDProducto { get; set; }        
         public string Nombre { get; set; }        
 
         public override string ToString()
